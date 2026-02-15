@@ -18,37 +18,41 @@ if run and task:
     with st.spinner("Running multi-agent workflow..."):
         result = run_workflow(task)
 
-    st.subheader("Final Answer")
-    final_answer = result.get("final_answer")
-    review_status = result.get("review_status")
+    deliverables = result.get("deliverables")
 
-    deliverables = result.get("deliverables", {})
+    if not deliverables:
+        st.error("No deliverables produced.")
+        st.stop()
 
-    if deliverables:
+    executive_summary = deliverables.get("executive_summary")
+    if executive_summary:
         st.subheader("Executive Summary")
-        st.write(deliverables.get("executive_summary"))
+        st.write(executive_summary)
 
+    client_email = deliverables.get("client_email")
+    if client_email:
         st.subheader("Client Email")
-        st.write(deliverables.get("client_email"))
+        st.markdown(client_email)
 
+    action_items = deliverables.get("action_items")
+    if action_items:
         st.subheader("Action Items")
-        st.write(deliverables.get("action_items"))
+        for item in action_items:
+            st.markdown(f"- {item}")
 
+    citations = deliverables.get("citations")
+    if citations:
         st.subheader("Sources")
-        st.write(deliverables.get("citations"))
+        st.write(citations)
 
-    if not final_answer:
-        st.warning("No final answer produced.")
-    elif review_status == "rejected":
-        st.warning("⚠️ Answer was generated but rejected by the Reviewer.")
-        st.write(final_answer)
-    else:
-        if not deliverables:
-            st.write(final_answer)
+    # if not final_answer:
+    #     st.warning("No final answer produced.")
+    # elif review_status == "rejected":
+    #     st.warning("⚠️ Answer was generated but rejected by the Reviewer.")
 
-    st.subheader("Review")
-    st.write(result.get("review", "No review produced."))
-    st.write("Status:", result.get("review_status"))
+    # st.subheader("Review")
+    # st.write(result.get("review", "No review produced."))
+    # st.write("Status:", result.get("review_status"))
 
     st.subheader("Agent Trace Timeline")
 
