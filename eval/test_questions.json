@@ -1,0 +1,62 @@
+[
+    {
+    "task": "Summarize the top project risks from the documents",
+    "must_contain": ["risk", "delivery", "security"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Create a client email based on latest project risks",
+    "must_contain": ["Dear", "risk", "project"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Extract action items from the weekly report",
+    "must_contain": ["Follow up", "Prepare"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Compare competitor positioning",
+    "must_contain": ["Competitor", "advantage"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Summarize security risks mentioned in project docs",
+    "must_contain": ["security", "review"],
+    "must_have_citations": true
+    },
+    {
+    "task": "List delivery risks and mitigation ideas",
+    "must_contain": ["delivery", "vendor"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Create internal summary of weekly project status",
+    "must_contain": ["status", "development"],
+    "must_have_citations": true
+    },
+    {
+    "task": "What are the main architecture external dependency risks?",
+    "must_contain": ["external", "API", "risk"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Extract deadlines and owners from documents",
+    "must_contain": ["owner"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Summarize competitor strategy differences",
+    "must_contain": ["low cost", "premium"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Draft an internal Confluence page summarizing architecture and risks",
+    "must_contain": ["Architecture", "Risks", "External Dependencies"],
+    "must_have_citations": true
+    },
+    {
+    "task": "Recommend either monolithic or microservices approach with justification",
+    "must_contain": ["Approach", "Pros", "Cons"],
+    "must_have_citations": true
+    }
+]
